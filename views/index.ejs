@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Stack App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Expense Tracker App</h1>
+    <form action="/add-expense" method="POST">
+        <label for="expense">Choose Expenses :</label>
+        <input type="number" name="expense" id="expense" required><br>
+        <label for="description">Choose Description :</label>
+        <input type="text" name="description" id="description" required><br>
+        <label for="category">Choose a Category :</label>
+        <select id="category" name="category">
+          <option value="Travelling">Travelling</option>
+          <option value="Movies">Movies</option>
+          <option value="Gym">Gym</option>
+          <option value="Music">Music</option>
+          <option value="Reading">Reading</option>
+        </select><br><br>
+        <button type="submit" class="btn">Add Expense</button>
+    </form>
+    <ul>
+        <% users.forEach(user => { %>
+            <li>
+                <%= user.expense %> - <%= user.description %> - <%= user.category %>
+                <a href="/edit-expense/<%= user.id %>" class="edit">Edit Expense</a>
+                <a href="/delete-expense/<%= user.id %>" class="delete">Delete Expense</a>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
